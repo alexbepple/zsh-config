@@ -53,3 +53,9 @@ alias la='ls -A'
 
 alias tree.without.garbage="tree -I '.git|.jhw-cache|.DS_Store|Icon*'"
 
+
+# fs
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+
+alias bd='. bd -si'
+
