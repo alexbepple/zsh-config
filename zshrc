@@ -8,6 +8,9 @@ if ! zgen saved; then
         sindresorhus/pure
 EOPLUGINS
 
+    # syntax-highlighting must allegedly be sourced at the end
+    zgen load zsh-users/zsh-syntax-highlighting
+
     zgen save
 fi
 
