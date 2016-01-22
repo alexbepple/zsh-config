@@ -60,6 +60,10 @@ alias bd='. bd -si'
 ###############################################################
 # misc
 ###############################################################
+
+# case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 alias grep='grep -i'
 alias ag='ag --smart-case --hidden'
 
