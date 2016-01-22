@@ -61,8 +61,11 @@ alias bd='. bd -si'
 # misc
 ###############################################################
 
-# case-insensitive completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# completion options
+#   'm:{a-zA-Z}={A-Za-z}' – case-insensitive
+#   'r:|[._-]=* r:|=*' allows 'f.b' to expand to 'foo.bar'
+#   'l:|=* r:|=*' allows 'bar' to expand to 'foobar'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 alias grep='grep -i'
 alias ag='ag --smart-case --hidden'
