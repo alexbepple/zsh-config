@@ -52,7 +52,7 @@ alias tree.without.garbage="tree -I '.git|.jhw-cache|.DS_Store|Icon*'"
 ###############################################################
 # fs
 ###############################################################
-function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+function mkcd () { mkdir -p "$1" && cd "$1" }
 
 alias bd='. bd -si'
 
