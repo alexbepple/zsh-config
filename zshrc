@@ -42,3 +42,14 @@ alias gwR='git reset --hard'
 
 alias st='open -a sourcetree .'
 
+
+# ls
+gnu_less='/usr/local/bin/gls'
+alias ls="$gnu_less --color -U"
+
+alias l='ls'         # Lists in one column, hidden files.
+alias ll='ls -l'
+alias la='ls -A'
+
+alias tree.without.garbage="tree -I '.git|.jhw-cache|.DS_Store|Icon*'"
+
