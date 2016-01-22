@@ -29,7 +29,9 @@ add_to_path /usr/local/sbin
 add_to_path $HOME/local/bin
 
 
+###############################################################
 # Git
+###############################################################
 alias g='git'
 
 alias gs='git status'
@@ -43,7 +45,9 @@ alias gwR='git reset --hard'
 alias st='open -a sourcetree .'
 
 
+###############################################################
 # ls
+###############################################################
 gnu_less='/usr/local/bin/gls'
 alias ls="$gnu_less --color -U"
 
@@ -54,8 +58,45 @@ alias la='ls -A'
 alias tree.without.garbage="tree -I '.git|.jhw-cache|.DS_Store|Icon*'"
 
 
+###############################################################
 # fs
+###############################################################
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 alias bd='. bd -si'
+
+
+###############################################################
+# misc
+###############################################################
+alias grep='grep -i'
+alias ag='ag --smart-case --hidden'
+
+alias o='open'
+
+export EDITOR=mvim
+vim_less="vim -u /usr/share/vim/vim73/macros/less.vim"
+alias L="$vim_less"
+export PAGER="$vim_less"
+export MANPAGER="col -b | $vim_less -c 'set ft=man nomod nolist' -"
+
+alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
+alias fix.open.with='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
+
+export PERU_CACHE=$HOME/.cache/peru
+
+alias time_="gtime -f '\ncompleted in %e seconds'"
+
+
+# opens in new window on current space, even if another VimR windows exists on another space
+function v () { 
+    osascript -e 'on run (argv)
+        tell application "VimR" to openFilesInNewWindow (argv)
+        activate application "VimR"
+    end' $(greadlink -f "$1") 
+}
+
+source /usr/local/opt/autoenv/activate.sh
+
+alias serve.this='mongoose -hide_files_patterns ".DS_Store"'
 
