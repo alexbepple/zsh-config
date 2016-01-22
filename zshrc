@@ -7,6 +7,8 @@ if ! zgen saved; then
     zgen load mafredri/zsh-async
     zgen load sindresorhus/pure
 
+    zgen load zsh-users/zsh-completions src
+
     # syntax-highlighting must allegedly be sourced at the end
     zgen load zsh-users/zsh-syntax-highlighting
 
