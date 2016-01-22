@@ -56,6 +56,8 @@ function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
 alias bd='. bd -si'
 
+setopt auto_cd
+
 
 ###############################################################
 # misc
