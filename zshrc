@@ -16,8 +16,12 @@ if ! zgen saved; then
 fi
 
 
-# local bin
-add_to_path $HOME/local/bin
+###############################################################
+# misc – early
+###############################################################
+
+# must be sourced before enhancd
+source /usr/local/opt/autoenv/activate.sh
 
 
 ###############################################################
@@ -60,6 +64,8 @@ alias bd='. bd -si'
 
 setopt auto_cd
 alias -- -='cd -'
+
+zgen load b4b4r07/enhancd
 
 
 ###############################################################
@@ -122,7 +128,7 @@ function v () {
     end' $(greadlink -f "$1") 
 }
 
-source /usr/local/opt/autoenv/activate.sh
-
 alias serve.this='mongoose -hide_files_patterns ".DS_Store"'
+
+add_to_path $HOME/local/bin
 
