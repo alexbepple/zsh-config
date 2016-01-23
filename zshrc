@@ -57,6 +57,7 @@ function mkcd () { mkdir -p "$1" && cd "$1" }
 alias bd='. bd -si'
 
 setopt auto_cd
+alias -- -='cd -'
 
 
 ###############################################################
