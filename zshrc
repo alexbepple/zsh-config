@@ -78,6 +78,17 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 
 ###############################################################
+# history
+###############################################################
+
+HISTFILE=$HOME/.zhistory
+HISTSIZE=10000 # maximum number of events to save in memory
+SAVEHIST=10000 # maximum number of events to save in the history file
+setopt HIST_IGNORE_ALL_DUPS # delete old recorded event if new event is duplicate
+setopt SHARE_HISTORY # share history between all sessions
+
+
+###############################################################
 # misc
 ###############################################################
 
