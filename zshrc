@@ -60,10 +60,9 @@ alias tree.without.garbage="tree -I '.git|.jhw-cache|.DS_Store|Icon*'"
 ###############################################################
 function mkcd () { mkdir -p "$1" && cd "$1" }
 
-alias bd='. bd -si'
-
 setopt auto_cd
 alias -- -='builtin cd -'
+alias -- ..='cd ..'
 
 zgen load b4b4r07/enhancd
 
