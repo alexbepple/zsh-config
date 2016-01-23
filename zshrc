@@ -25,13 +25,15 @@ add_to_path $HOME/local/bin
 ###############################################################
 alias g='git'
 
-alias gs='git status'
-alias ga='git add'
-alias gac='git add -A :/ && git commit -v'
-alias gl='git log --oneline'
-alias gd='git diff --histogram --word-diff=color'
-alias gp='git push'
-alias gwR='git reset --hard'
+alias gs='g status'
+alias ga='g add'
+alias gc='g commit --verbose'
+alias gac='ga -A :/ && gc'
+alias gl='g log --oneline'
+alias gd='g diff --histogram --word-diff=color'
+alias gp='g push'
+alias gco='g checkout'
+alias gwR='g reset --hard'
 
 alias st='open -a sourcetree .'
 
