@@ -144,3 +144,5 @@ alias serve.this='mongoose -hide_files_patterns ".DS_Store"'
 add_to_path $HOME/local/bin
 
 source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--reverse --inline-info"
+
