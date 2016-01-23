@@ -66,6 +66,7 @@ alias -- -='cd -'
 # line editing
 ###############################################################
 
+# for iTerm2 integration
 bindkey '\ea' beginning-of-line
 bindkey '\eA' end-of-line
 bindkey '\es' backward-kill-word
