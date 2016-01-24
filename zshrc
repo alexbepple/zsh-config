@@ -146,3 +146,4 @@ add_to_path $HOME/local/bin
 source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 
+setopt histverify
