@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 source $HOME/local/Cellar/shellscriptloader/loader.zsh
 loader_addpath "$(dirname $(readlink $HOME/.zshrc))"
 
