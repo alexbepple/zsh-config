@@ -4,7 +4,7 @@ function mkcd () { mkdir -p "$1" && cd "$1" }
 
 setopt auto_cd
 alias -- -='builtin cd -'
-alias -- ..='cd ..'
+alias -- .='cd ..'
 
 zgen load b4b4r07/enhancd
 
