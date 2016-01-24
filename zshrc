@@ -62,40 +62,6 @@ bindkey '^I' _cd_into_recent_or_expand
 
 
 ###############################################################
-# line editing
-###############################################################
-
-# for iTerm2 integration
-bindkey '\ea' beginning-of-line
-bindkey '\eA' end-of-line
-bindkey '\es' backward-kill-word
-bindkey '\eS' backward-kill-line
-bindkey '\eu' undo
-
-# completion options
-#   'm:{a-zA-Z}={A-Za-z}' – case-insensitive
-#   'r:|[._-]=* r:|=*' allows 'f.b' to expand to 'foo.bar'
-#   'l:|=* r:|=*' allows 'bar' to expand to 'foobar'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-# automatically select the first suggestion
-setopt menucomplete
-
-setopt histverify
-
-function _sudo_or_accept() {
-    if [[ $BUFFER == '!!' ]]; then
-        local last_line="$history[$[HISTCMD-1]]"
-        zle kill-whole-line
-        zle -U "sudo ${last_line}"
-    else
-        zle .accept-line
-    fi
-}
-zle -N accept-line _sudo_or_accept
-
-
-###############################################################
 # history
 ###############################################################
 
@@ -152,6 +118,7 @@ export FZF_DEFAULT_OPTS="--reverse --inline-info"
 source ~/local/Cellar/shellscriptloader/loader.zsh
 loader_addpath "$(dirname $(readlink $HOME/.zshrc))/modules"
 
+include editor
 include git
 
 loader_finish
