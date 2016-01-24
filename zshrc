@@ -1,18 +1,14 @@
 source "${HOME}/local/Cellar/zgen/zgen.zsh"
 
 if ! zgen saved; then
-    echo "Initializing plugins"
-
-    # pure depends on async
-    zgen load mafredri/zsh-async
-    zgen load sindresorhus/pure
+    echo "Need to recreate init script …"
 
     zgen load zsh-users/zsh-completions src
 
-    # syntax-highlighting must allegedly be sourced at the end
+    # syntax-highlighting should be sourced at the end of .zshrc
+    # otherwise there might be problems with ZLE widgets loaded afterwards
+    # -- README
     zgen load zsh-users/zsh-syntax-highlighting
-
-    zgen save
 fi
 
 
@@ -32,6 +28,7 @@ source $HOME/local/Cellar/shellscriptloader/loader.zsh
 loader_addpath "$(dirname $(readlink $HOME/.zshrc))/modules"
 
 include editor
+include prompt
 include navigate
 include 'history'
 include misc
@@ -40,4 +37,8 @@ include 'ls'
 include git
 
 loader_finish
+
+if ! zgen saved; then
+    zgen save
+fi
 
