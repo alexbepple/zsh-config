@@ -99,6 +99,19 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 # automatically select the first suggestion
 setopt menucomplete
 
+setopt histverify
+
+function _sudo_or_accept() {
+    if [[ $BUFFER == '!!' ]]; then
+        local last_line="$history[$[HISTCMD-1]]"
+        zle kill-whole-line
+        zle -U "sudo ${last_line}"
+    else
+        zle .accept-line
+    fi
+}
+zle -N accept-line _sudo_or_accept
+
 
 ###############################################################
 # history
@@ -149,4 +162,3 @@ add_to_path $HOME/local/bin
 source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 
-setopt histverify
