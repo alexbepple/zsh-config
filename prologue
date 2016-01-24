@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+source "${HOME}/local/Cellar/zgen/zgen.zsh"
+
+if ! zgen saved; then
+    echo "Need to recreate init script …"
+
+    zgen load zsh-users/zsh-completions src
+fi
+
+
+# must be sourced before enhancd
+source /usr/local/opt/autoenv/activate.sh
+

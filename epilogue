@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+if ! zgen saved; then
+    # syntax-highlighting should be sourced at the end of .zshrc
+    # otherwise there might be problems with ZLE widgets loaded afterwards
+    # -- README
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen save
+fi
+
