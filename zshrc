@@ -73,53 +73,15 @@ setopt SHARE_HISTORY # share history between all sessions
 
 
 ###############################################################
-# misc
-###############################################################
-
-alias grep='grep -i'
-alias ag='ag --smart-case --hidden'
-
-alias o='open'
-
-export EDITOR=mvim
-vim_less="vim -u /usr/share/vim/vim73/macros/less.vim"
-alias L="$vim_less"
-export PAGER="$vim_less"
-export MANPAGER="col -b | $vim_less -c 'set ft=man nomod nolist' -"
-
-alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
-alias fix.open.with='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
-
-export PERU_CACHE=$HOME/.cache/peru
-
-alias time_="gtime -f '\ncompleted in %e seconds'"
-
-
-# opens in new window on current space, even if another VimR windows exists on another space
-function v () { 
-    osascript -e 'on run (argv)
-        tell application "VimR" to openFilesInNewWindow (argv)
-        activate application "VimR"
-    end' $(greadlink -f "$1") 
-}
-
-alias serve.this='mongoose -hide_files_patterns ".DS_Store"'
-
-add_to_path $HOME/local/bin
-
-source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--reverse --inline-info"
-
-
-###############################################################
 # load modules
 ###############################################################
 
-source ~/local/Cellar/shellscriptloader/loader.zsh
+source $HOME/local/Cellar/shellscriptloader/loader.zsh
 loader_addpath "$(dirname $(readlink $HOME/.zshrc))/modules"
 
 include editor
 include git
+include misc
 
 loader_finish
 
