@@ -96,6 +96,9 @@ bindkey '\eu' undo
 #   'l:|=* r:|=*' allows 'bar' to expand to 'foobar'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+# automatically select the first suggestion
+setopt menucomplete
+
 
 ###############################################################
 # history
