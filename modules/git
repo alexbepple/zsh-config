@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+alias g='git'
+
+alias gs='g status'
+alias ga='g add'
+alias gc='g commit --verbose'
+alias gac='ga -A :/ && gc'
+alias gl='g log --oneline'
+alias gd='g diff --histogram --word-diff=color'
+alias gp='g push'
+alias gco='g checkout'
+alias gwR='g reset --hard'
+
+alias st='open -a sourcetree .'
+

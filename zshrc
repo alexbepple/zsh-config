@@ -25,24 +25,6 @@ source /usr/local/opt/autoenv/activate.sh
 
 
 ###############################################################
-# Git
-###############################################################
-alias g='git'
-
-alias gs='g status'
-alias ga='g add'
-alias gc='g commit --verbose'
-alias gac='ga -A :/ && gc'
-alias gl='g log --oneline'
-alias gd='g diff --histogram --word-diff=color'
-alias gp='g push'
-alias gco='g checkout'
-alias gwR='g reset --hard'
-
-alias st='open -a sourcetree .'
-
-
-###############################################################
 # ls
 ###############################################################
 gnu_less='/usr/local/bin/gls'
@@ -161,4 +143,16 @@ add_to_path $HOME/local/bin
 
 source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
+
+
+###############################################################
+# load modules
+###############################################################
+
+source ~/local/Cellar/shellscriptloader/loader.zsh
+loader_addpath "$(dirname $(readlink $HOME/.zshrc))/modules"
+
+include git
+
+loader_finish
 
