@@ -19,16 +19,17 @@ setopt menucomplete
 setopt histverify
 
 
-previous_function=$(zle -lL accept-line | cut -f 4 -d' ')
-eval "zle -N $previous_function"
-function _sudo_or_accept() {
-    if [[ $BUFFER == '!!' ]]; then
-        local last_line="$history[$[HISTCMD-1]]"
-        zle kill-whole-line
-        zle -U "sudo ${last_line}"
-    else
-        eval "zle $previous_function"
-    fi
+function {
+    _sudo_or_accept_wrapped=$(zle -lL accept-line | cut -f 4 -d' ')
+    eval "zle -N $_sudo_or_accept_wrapped"
+    function _sudo_or_accept() {
+        if [[ $BUFFER == '!!' ]]; then
+            local last_line="$history[$[HISTCMD-1]]"
+            zle kill-whole-line
+            zle -U "sudo ${last_line}"
+        else
+            zle $_sudo_or_accept_wrapped
+        fi
+    }
+    zle -N accept-line _sudo_or_accept
 }
-zle -N accept-line _sudo_or_accept
-

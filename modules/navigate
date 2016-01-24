@@ -11,7 +11,7 @@ zgen load b4b4r07/enhancd
 # cd into recent dir on tab at beginning of line
 function _cd_into_recent_or_expand() {
     if [[ -z $BUFFER ]]; then
-        BUFFER="cd"
+        BUFFER="cd "
         zle accept-line
     else
         zle expand-or-complete
@@ -19,4 +19,19 @@ function _cd_into_recent_or_expand() {
 }
 zle -N _cd_into_recent_or_expand
 bindkey '^I' _cd_into_recent_or_expand
+
+
+function {
+    _go_home_wrapped=$(zle -lL accept-line | cut -f 4 -d' ')
+    eval "zle -N $_go_home_wrapped"
+    function _go_home() {
+        if [[ $BUFFER == 'cd' ]]; then
+            BUFFER="cd $HOME"
+            zle .accept-line
+        else
+            zle $_go_home_wrapped
+        fi
+    }
+    zle -N accept-line _go_home
+}
 
