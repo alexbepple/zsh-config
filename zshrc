@@ -67,7 +67,7 @@ alias -- ..='cd ..'
 zgen load b4b4r07/enhancd
 
 # cd into recent dir on tab at beginning of line
-function cd_into_recent_or_expand() {
+function _cd_into_recent_or_expand() {
     if [[ -z $BUFFER ]]; then
         BUFFER="cd"
         zle accept-line
@@ -75,8 +75,8 @@ function cd_into_recent_or_expand() {
         zle expand-or-complete
     fi
 }
-zle -N cd_into_recent_or_expand
-bindkey '^I' cd_into_recent_or_expand
+zle -N _cd_into_recent_or_expand
+bindkey '^I' _cd_into_recent_or_expand
 
 
 ###############################################################
