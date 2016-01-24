@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+function mkcd () { mkdir -p "$1" && cd "$1" }
+
+setopt auto_cd
+alias -- -='builtin cd -'
+alias -- ..='cd ..'
+
+zgen load b4b4r07/enhancd
+
+# cd into recent dir on tab at beginning of line
+function _cd_into_recent_or_expand() {
+    if [[ -z $BUFFER ]]; then
+        BUFFER="cd"
+        zle accept-line
+    else
+        zle expand-or-complete
+    fi
+}
+zle -N _cd_into_recent_or_expand
+bindkey '^I' _cd_into_recent_or_expand
+
