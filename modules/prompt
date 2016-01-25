@@ -6,3 +6,6 @@ if ! zgen saved; then
     zgen load sindresorhus/pure
 fi
 
+# do not show the command execution time; there is no explicit way to disable it
+PURE_CMD_MAX_EXEC_TIME=1000
+
