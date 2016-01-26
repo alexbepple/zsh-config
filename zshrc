@@ -1,11 +1,13 @@
 #!/usr/bin/env zsh
 
 source $HOME/local/Cellar/shellscriptloader/loader.zsh
-loader_addpath "$(dirname $(readlink $HOME/.zshrc))"
+
+path_to_here=$(dirname $(readlink $HOME/.zshrc))
+loader_addpath "$path_to_here"
+loader_addpath "$path_to_here/modules"
 
 include prologue
 
-    loader_addpath "$(dirname $(readlink $HOME/.zshrc))/modules"
     include editor
     include prompt
     include navigate
