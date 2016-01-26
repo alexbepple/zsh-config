@@ -21,7 +21,11 @@ setopt histverify
 
 function {
     _sudo_or_accept_wrapped=$(zle -lL accept-line | cut -f 4 -d' ')
-    eval "zle -N $_sudo_or_accept_wrapped"
+    if [[ -n $_sudo_or_accept_wrapped ]]; then
+		zle -N $_sudo_or_accept_wrapped
+    else
+        _sudo_or_accept_wrapped='.accept-line'
+    fi
     function _sudo_or_accept() {
         if [[ $BUFFER == '!!' ]]; then
             local last_line="$history[$[HISTCMD-1]]"
