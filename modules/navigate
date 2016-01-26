@@ -1,10 +1,12 @@
 #!/usr/bin/env zsh
 
+include 'editor'
+
 function mkcd () { mkdir -p "$1" && cd "$1" }
 
 setopt auto_cd
 alias -- -='builtin cd -'
-alias -- up='cd ..'
+alias up='cd ..'
 
 if ! zgen saved; then
     zgen load b4b4r07/enhancd
@@ -23,21 +25,12 @@ zle -N _cd_into_recent_or_expand
 bindkey '^I' _cd_into_recent_or_expand
 
 
-function {
-    _go_home_wrapped=$(zle -lL accept-line | cut -f 4 -d' ')
-    if [[ -n $_go_home_wrapped ]]; then
-		zle -N $_go_home_wrapped
-    else
-        _go_home_wrapped='.accept-line'
-    fi
-    function _go_home() {
-        if [[ $BUFFER == 'cd' ]]; then
-            BUFFER="cd $HOME"
-            zle .accept-line
-        else
-            zle $_go_home_wrapped
-        fi
-    }
-    zle -N accept-line _go_home
+function _go_home() {
+	if [[ $BUFFER == 'cd' ]]; then
+		BUFFER="cd $HOME"
+		zle .accept-line
+		return 1
+	fi
 }
+hooks-add-hook zle_accept_line _go_home
 

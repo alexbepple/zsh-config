@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+include 'hooks'
+
 # for iTerm2 integration
 bindkey '\ea' beginning-of-line
 bindkey '\eA' end-of-line
@@ -19,21 +21,24 @@ setopt menucomplete
 setopt histverify
 
 
-function {
-    _sudo_or_accept_wrapped=$(zle -lL accept-line | cut -f 4 -d' ')
-    if [[ -n $_sudo_or_accept_wrapped ]]; then
-		zle -N $_sudo_or_accept_wrapped
-    else
-        _sudo_or_accept_wrapped='.accept-line'
+hooks-define-hook zle_accept_line
+function _run_hooks_or_default_accept() {
+    hooks-run-hook zle_accept_line
+    if [[ $? -ne 0 ]]; then
+        return 0
     fi
-    function _sudo_or_accept() {
-        if [[ $BUFFER == '!!' ]]; then
-            local last_line="$history[$[HISTCMD-1]]"
-            zle kill-whole-line
-            zle -U "sudo ${last_line}"
-        else
-            zle $_sudo_or_accept_wrapped
-        fi
-    }
-    zle -N accept-line _sudo_or_accept
+    zle .accept-line
 }
+zle -N accept-line _run_hooks_or_default_accept
+
+
+function _sudo_helper() {
+    if [[ $BUFFER == '!!' ]]; then
+        local last_line="$history[$[HISTCMD-1]]"
+        zle kill-whole-line
+        zle -U "sudo ${last_line}"
+        return 1
+    fi
+}
+hooks-add-hook zle_accept_line _sudo_helper
+
