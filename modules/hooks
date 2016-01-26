@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
 if ! zgen saved; then
-	zgen load willghatch/zsh-hooks
+	zgen load alexbepple/zsh-hooks
 fi
 
