@@ -12,7 +12,14 @@ if ! zgen saved; then
 fi
 
 
-eval "$(fasd --init zsh-hook posix-alias)"
+function {
+    export fasd_cache="$HOME/.cache/fasd-init"
+    if [[ ! -f "$fasd_cache" ]]; then
+        fasd --init zsh-hook posix-alias >| "$fasd_cache"
+    fi
+    source "$fasd_cache"
+}
+
 alias j=z
 jj() {
     local dir
