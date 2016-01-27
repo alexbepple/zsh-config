@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 include 'hooks'
+include 'keys'
 
 # for iTerm2 integration
 bindkey '\ea' beginning-of-line
@@ -17,6 +18,10 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 # automatically select the first suggestion
 setopt menucomplete
+
+zstyle ':completion:*' menu select
+bindkey "$keys[BackTab]" reverse-menu-complete
+
 
 setopt histverify
 
