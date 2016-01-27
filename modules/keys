@@ -31,6 +31,7 @@ keys=(
     'Left'         "$terminfo[kcub1]"
     'Down'         "$terminfo[kcud1]"
     'Right'        "$terminfo[kcuf1]"
+    'Tab'          '^I'
     'BackTab'      "$terminfo[kcbt]"
 )
 

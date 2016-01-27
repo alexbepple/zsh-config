@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 include 'editor'
+include 'keys'
 
 function mkcd () { mkdir -p "$1" && cd "$1" }
 
@@ -36,5 +37,5 @@ function _cd_into_frecent_or_expand() {
     fi
 }
 zle -N _cd_into_frecent_or_expand
-bindkey '^I' _cd_into_frecent_or_expand
+bindkey "$keys[Tab]" _cd_into_frecent_or_expand
 
