@@ -5,32 +5,29 @@ include 'editor'
 function mkcd () { mkdir -p "$1" && cd "$1" }
 
 setopt auto_cd
-alias -- -='builtin cd -'
+alias -- -='cd -'
 
 if ! zgen saved; then
-    zgen load b4b4r07/enhancd
     zgen load Tarrasch/zsh-bd
 fi
 
+
+eval "$(fasd --init zsh-hook posix-alias)"
+alias j=z
+jj() {
+    local dir
+    dir="$(fasd -Rdl | fzf -1 -0 --no-sort +m -q "$1")" && cd "${dir}" || return 1
+}
+
 # cd into recent dir on tab at beginning of line
-function _cd_into_recent_or_expand() {
+function _cd_into_frecent_or_expand() {
     if [[ -z $BUFFER ]]; then
-        BUFFER="cd "
+        BUFFER="jj"
         zle accept-line
     else
         zle expand-or-complete
     fi
 }
-zle -N _cd_into_recent_or_expand
-bindkey '^I' _cd_into_recent_or_expand
-
-
-function _go_home() {
-    if [[ $BUFFER == 'cd' ]]; then
-        BUFFER="cd $HOME"
-        zle .accept-line
-        return 1
-    fi
-}
-hooks-add-hook zle_accept_line _go_home
+zle -N _cd_into_frecent_or_expand
+bindkey '^I' _cd_into_frecent_or_expand
 
