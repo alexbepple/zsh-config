@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "eclint": "^1.1.5"
+  }
+}

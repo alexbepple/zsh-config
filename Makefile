@@ -1,12 +1,19 @@
+eclint := ./node_modules/.bin/eclint
 zsh := zsh -i -c
-test: measure-startup-time check-manually
+zsh_noop := $(zsh) 'print -n'
+
+test: check-style check-init-generation measure-startup-time
 
 measure-startup-time:
 	# only the second call gives the right times
 	# I do not know the reason for this behavior
-	time $(zsh) 'print -n'
-	time $(zsh) 'print -n'
+	time $(zsh_noop)
+	time $(zsh_noop)
 
-check-manually:
-	$(zsh) 'zgen reset && zsh'
+check-init-generation:
+	$(zsh) 'zgen reset'
+	$(zsh_noop)
+
+check-style:
+	$(eclint) check * modules/*
 

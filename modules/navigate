@@ -8,8 +8,8 @@ setopt auto_cd
 alias -- -='builtin cd -'
 
 if ! zgen saved; then
-    zgen load b4b4r07/enhancd 
-    zgen load Tarrasch/zsh-bd 
+    zgen load b4b4r07/enhancd
+    zgen load Tarrasch/zsh-bd
 fi
 
 # cd into recent dir on tab at beginning of line
@@ -26,11 +26,11 @@ bindkey '^I' _cd_into_recent_or_expand
 
 
 function _go_home() {
-	if [[ $BUFFER == 'cd' ]]; then
-		BUFFER="cd $HOME"
-		zle .accept-line
-		return 1
-	fi
+    if [[ $BUFFER == 'cd' ]]; then
+        BUFFER="cd $HOME"
+        zle .accept-line
+        return 1
+    fi
 }
 hooks-add-hook zle_accept_line _go_home
 
