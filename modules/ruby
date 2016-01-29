@@ -5,6 +5,10 @@ include memoize-init
 
 memoize_init 'rbenv init --no-rehash - zsh'
 
-async_start_worker rbenv
-async_job rbenv rbenv rehash
-
+function {
+    local worker=rbenv
+    function dummy_callback() { }
+    async_start_worker $worker
+    async_register_callback $worker dummy_callback
+    async_job $worker rbenv rehash
+}
