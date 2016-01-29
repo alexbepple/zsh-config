@@ -1,13 +1,9 @@
 #!/usr/bin/env zsh
 
 include zsh-async
+include memoize-init
 
-rbenv_init="$ZGEN_DIR/init-rbenv.zsh"
-if ! zgen saved; then
-    echo Creating "$rbenv_init"
-    rbenv init --no-rehash - zsh > "$rbenv_init"
-fi
-source "$rbenv_init"
+memoize_init 'rbenv init --no-rehash - zsh'
 
 async_start_worker rbenv
 async_job rbenv rbenv rehash

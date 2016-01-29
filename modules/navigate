@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
-include 'editor'
-include 'keys'
+include editor
+include keys
+include memoize-init
 
 function mkcd () { mkdir -p "$1" && cd "$1" }
 
@@ -13,14 +14,7 @@ if ! zgen saved; then
 fi
 
 
-function {
-    fasd_init="$ZGEN_DIR/init-fasd.zsh"
-    if ! zgen saved; then
-        echo Creating "$fasd_init"
-        fasd --init zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install > "$fasd_init"
-    fi
-    source "$fasd_init"
-}
+memoize_init 'fasd --init zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install'
 
 alias j=z
 jj() {

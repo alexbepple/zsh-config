@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+function memoize_init() {
+    local init_procedure="$1"
+    local parts
+    parts=(${(s/ /)init_procedure})
+    local module=$parts[1]
+    local init_script="$ZGEN_DIR/init-$module.zsh"
+    if ! zgen saved; then
+        echo Creating "$init_script"
+        eval "$init_procedure" > "$init_script"
+    fi
+    source "$init_script"
+}
+
