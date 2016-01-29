@@ -4,3 +4,5 @@ if ! zgen saved; then
     zgen load mafredri/zsh-async
 fi
 
+async_init
+
