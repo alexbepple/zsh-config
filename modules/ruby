@@ -2,8 +2,9 @@
 
 include zsh-async
 
-rbenv_init="$HOME/.cache/zgen/init-rbenv.sh"
+rbenv_init="$ZGEN_DIR/init-rbenv.zsh"
 if ! zgen saved; then
+    echo Creating "$rbenv_init"
     rbenv init --no-rehash - zsh > "$rbenv_init"
 fi
 source "$rbenv_init"

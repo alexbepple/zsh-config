@@ -12,7 +12,6 @@ measure-startup-time:
 
 reset:
 	$(zsh) 'zgen reset'
-	rm $(fasd_cache)
 
 check-init-generation: reset
 	$(zsh_noop)

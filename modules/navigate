@@ -14,11 +14,12 @@ fi
 
 
 function {
-    export fasd_cache="$HOME/.cache/fasd-init"
-    if [[ ! -f "$fasd_cache" ]]; then
-        fasd --init zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install >| "$fasd_cache"
+    fasd_init="$ZGEN_DIR/init-fasd.zsh"
+    if ! zgen saved; then
+        echo Creating "$fasd_init"
+        fasd --init zsh-hook posix-alias zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install > "$fasd_init"
     fi
-    source "$fasd_cache"
+    source "$fasd_init"
 }
 
 alias j=z
