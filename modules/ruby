@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+include zsh-async
+
+rbenv_init="$HOME/.cache/zgen/init-rbenv.sh"
+if ! zgen saved; then
+    rbenv init --no-rehash - zsh > "$rbenv_init"
+fi
+source "$rbenv_init"
+
+async_start_worker rbenv
+async_job rbenv rbenv rehash
+

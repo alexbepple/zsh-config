@@ -11,11 +11,12 @@ include prologue
     include editor
     include prompt
     include navigate
-    include 'history'
+    include history
     include misc
-    include 'ls'
+    include ls
 
     include git
+    include ruby
 
 include epilogue
 
