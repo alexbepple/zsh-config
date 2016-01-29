@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
+include zsh-async
+
 if ! zgen saved; then
-    # pure depends on async
-    zgen load mafredri/zsh-async
     zgen load sindresorhus/pure
 fi
 
