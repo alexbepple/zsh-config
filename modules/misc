@@ -34,3 +34,6 @@ add_to_path $HOME/local/bin
 source $HOME/.fzf.zsh
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 
+# automatically update $PATH completion
+zstyle ":completion:*:commands" rehash 1
+
