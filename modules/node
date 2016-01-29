@@ -2,6 +2,7 @@
 
 include memoize-init
 
+alias n=nodenv
 memoize_init 'nodenv init --no-rehash - zsh'
 
 function {
