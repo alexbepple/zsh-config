@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+include memoize-init
+
+memoize_init 'nodenv init --no-rehash - zsh'
+
+function {
+    local worker=nodenv
+    function dummy_callback() { }
+    async_start_worker $worker
+    async_register_callback $worker dummy_callback
+    async_job $worker nodenv rehash
+}

@@ -17,6 +17,7 @@ include prologue
 
     include git
     include ruby
+    include node
 
 include epilogue
 
