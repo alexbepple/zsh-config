@@ -23,15 +23,3 @@ jj() {
     dir="$(fasd -Rdl | fzf -1 -0 --no-sort +m -q "$1")" && cd "${dir}" || return 1
 }
 
-# cd into recent dir on tab at beginning of line
-function _cd_into_frecent_or_expand() {
-    if [[ -z $BUFFER ]]; then
-        BUFFER="jj"
-        zle accept-line
-    else
-        zle expand-or-complete
-    fi
-}
-zle -N _cd_into_frecent_or_expand
-bindkey "$keys[Tab]" _cd_into_frecent_or_expand
-

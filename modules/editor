@@ -49,3 +49,15 @@ function _sudo_helper() {
 }
 hooks-add-hook zle_accept_line _sudo_helper
 
+
+# search history on <tab> at beginning of line
+function _search_history_or_expand() {
+    if [[ -z $BUFFER ]]; then
+        zle fzf-history-widget
+    else
+        zle expand-or-complete
+    fi
+}
+zle -N _search_history_or_expand
+bindkey "$keys[Tab]" _search_history_or_expand
+
