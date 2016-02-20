@@ -3,3 +3,5 @@
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export ANDROID_NDK=/usr/local/Cellar/android-ndk/r10e
 
+add_to_path '/Applications/Genymotion.app/Contents/MacOS'
+
