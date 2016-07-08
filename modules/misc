@@ -37,3 +37,6 @@ export FZF_DEFAULT_OPTS="--reverse --inline-info --no-sort"
 # automatically update $PATH completion
 zstyle ":completion:*:commands" rehash 1
 
+. $HOME/.nix-profile/etc/profile.d/nix.sh
+alias nix=nix-env
+
