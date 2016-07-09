@@ -6,10 +6,11 @@ alias ag='ag --smart-case --hidden'
 alias o='open'
 
 export EDITOR=mvim
-vim_less="vim -u /usr/share/vim/vim73/macros/less.vim"
-alias L="$vim_less"
-export PAGER="$vim_less"
-export MANPAGER="col -b | $vim_less -c 'set ft=man nomod nolist' -"
+
+export vimless="vim -u /usr/share/vim/vim73/macros/less.vim"
+alias vimless="$vimless"
+alias L='vimless'
+export MANPAGER="col -b | $vimless -c 'set ft=man nomod nolist' -"
 
 alias p4merge='/Applications/p4merge.app/Contents/Resources/launchp4merge'
 alias fix.open.with='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
