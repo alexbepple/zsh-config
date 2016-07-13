@@ -19,6 +19,7 @@ include prologue
     include ruby
     include node
     include android
+    include docker
 
 include epilogue
 
