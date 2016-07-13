@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
 if ! zgen saved; then
-    zgen load 'felixr/docker-zsh-completion'
+    zgen load 'docker/docker' contrib/completion/zsh/
 fi
 
