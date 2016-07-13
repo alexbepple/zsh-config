@@ -5,7 +5,5 @@ source "${HOME}/local/Cellar/zgen/zgen.zsh"
 
 if ! zgen saved; then
     echo "Need to recreate init scripts …"
-
-    zgen load zsh-users/zsh-completions src
 fi
 
