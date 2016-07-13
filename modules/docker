@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 if ! zgen saved; then
-    zgen load 'docker/docker' contrib/completion/zsh/
+    zgen load 'docker/docker' contrib/completion/zsh
+    zgen load 'docker/compose' contrib/completion/zsh
 fi
 
