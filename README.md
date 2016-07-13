@@ -1,4 +1,12 @@
 
+
+## Contraints
+
+Keep startup time <= 0.12 s.
+
+* With zgen this is only possible by manually managing the init process.
+
+
 ## Principles
 
 Do not break what people are used to. Augment, do not change. Examples:
