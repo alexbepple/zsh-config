@@ -12,3 +12,6 @@ function {
     async_register_callback $worker dummy_callback
     async_job $worker rbenv rehash
 }
+
+alias be='bundle exec'
+
