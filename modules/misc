@@ -26,12 +26,14 @@ alias time_="gtime -f '\ncompleted in %e seconds'"
 
 
 # opens in new window on current space, even if another VimR windows exists on another space
-function v () {
+function vv () {
     osascript -e 'on run (argv)
         tell application "VimR" to openFilesInNewWindow (argv)
         activate application "VimR"
     end' "$(greadlink -f "$1")"
 }
+alias v=vimr
+
 
 alias serve.this='mongoose -hide_files_patterns ".DS_Store"'
 
