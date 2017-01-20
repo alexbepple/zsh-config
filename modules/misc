@@ -11,7 +11,8 @@ alias o='open'
 
 export EDITOR=mvim
 
-export vimless="vim -u /usr/share/vim/vim73/macros/less.vim"
+pathToVimBinary=$(dirname $(which vim))/$(readlink $(which vim))
+export vimless=$(dirname $pathToVimBinary)/../share/vim/vim80/macros/less.sh
 alias vimless="$vimless"
 alias L='vimless'
 export MANPAGER="col -b | $vimless -c 'set ft=man nomod nolist' -"
