@@ -9,6 +9,7 @@ alias gac='ga -A :/ && gc'
 alias gl='g log --oneline --decorate --all --graph -12'
 alias gd='g diff --histogram --word-diff=color'
 alias gp='g push'
+alias gpr='g pull --rebase'
 alias gco='g checkout'
 alias gwR='g reset --hard'
 
