@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+include fzf_install
+
+export FZF_DEFAULT_OPTS="--reverse --inline-info --no-sort"
+export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS"
+

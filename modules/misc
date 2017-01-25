@@ -39,10 +39,6 @@ alias serve.this='mongoose -hide_files_patterns ".DS_Store"'
 
 add_to_path $HOME/local/bin
 
-source $HOME/.fzf.zsh
-export FZF_DEFAULT_OPTS="--reverse --inline-info --no-sort"
-export FZF_CTRL_R_OPTS="$FZF_DEFAULT_OPTS"
-
 # automatically update $PATH completion
 zstyle ":completion:*:commands" rehash 1
 

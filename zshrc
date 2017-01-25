@@ -15,6 +15,8 @@ include prologue
     include misc
     include ls
 
+    include fzf
+
     include git
     include ruby
     include node

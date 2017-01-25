@@ -2,6 +2,7 @@
 
 include 'hooks'
 include 'keys'
+include 'fzf'
 
 # for iTerm2 integration
 bindkey '\ea' beginning-of-line
