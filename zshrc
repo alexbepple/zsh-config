@@ -18,7 +18,6 @@ include prologue
     include fzf
 
     include git
-    include node
     include android
     include docker
 
