@@ -8,6 +8,8 @@ fi
 alias d=docker
 alias dc=docker-compose
 
+alias di='docker images'
+
 alias d.purge.containers='docker ps -f status=exited -q | xargs docker rm --volumes'
 alias d.rm.all.containers='docker ps -a -q | xargs docker rm --volumes -f'
 alias d.purge.images='docker images -f dangling=true -q | xargs docker rmi'
