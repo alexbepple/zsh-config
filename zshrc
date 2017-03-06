@@ -20,6 +20,7 @@ include prologue
     include git
     include android
     include docker
+    include node
 
 include epilogue
 
