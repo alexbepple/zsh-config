@@ -21,6 +21,7 @@ include prologue
     include android
     include docker
     include node
+    include go
 
 include epilogue
 

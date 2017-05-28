@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+export GOPATH=$HOME/.go
+add_to_path $GOPATH/bin
+
