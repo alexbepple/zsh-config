@@ -42,3 +42,8 @@ add_to_path $HOME/local/bin
 # automatically update $PATH completion
 zstyle ":completion:*:commands" rehash 1
 
+alias c=code
+
+alias le=ledger
+alias bal='ledger bal'
+alias reg='ledger reg'
