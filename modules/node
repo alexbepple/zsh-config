@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
+alias y=yarn
 add_to_path "$(yarn global bin)"
-
