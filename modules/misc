@@ -47,3 +47,7 @@ alias c=code
 alias le=ledger
 alias bal='ledger bal'
 alias reg='ledger reg'
+
+function shrink_large_jpeg() {
+    jpegtopnm $1 | pamscale -xyfit 2048 2048 | pnmtojpeg | imagemin --plugin=mozjpeg | sponge $1
+}
