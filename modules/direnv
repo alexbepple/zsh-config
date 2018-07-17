@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+include memoize-init
+
+memoize_init 'direnv hook zsh'

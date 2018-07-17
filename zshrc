@@ -16,6 +16,7 @@ include prologue
     include ls
 
     include fzf
+    include direnv
 
     include git
     include android
