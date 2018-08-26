@@ -5,6 +5,7 @@ source $HOME/local/Cellar/shellscriptloader/loader.zsh
 path_to_here=$(dirname $(readlink $HOME/.zshrc))
 loader_addpath "$path_to_here"
 loader_addpath "$path_to_here/modules"
+loader_addpath "$path_to_here/dev"
 
 include prologue
 
@@ -24,6 +25,7 @@ include prologue
     include node
     include python
     include go
+    include rust
 
 include epilogue
 
